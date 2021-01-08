@@ -1,0 +1,1 @@
+cd reactPjt && npm link module1

@@ -1,0 +1,36 @@
+{
+    "pjt": {
+        "init": "start .\\ex_folder\\main",
+        "module1": "code .\\ex_folder\\main\\module1",
+        "module2": "code .\\ex_folder\\main\\module2",
+        "module3": "code .\\ex_folder\\main\\module3",
+        "module4": "code .\\ex_folder\\main\\module4",
+        "module5": "code .\\ex_folder\\main\\module5",
+        "sub": {
+            "init": "start .\\ex_folder\\sub",
+            "module1": "code .\\ex_folder\\sub\\module1",
+            "module2": "code .\\ex_folder\\sub\\module2",
+            "module3": "code .\\ex_folder\\sub\\module3",
+            "module4": "code .\\ex_folder\\sub\\module4",
+            "module5": "code .\\ex_folder\\sub\\module5"
+        }
+    },
+    "reactPjt": {
+        "init": "notepad .\\ex_folder\\reactPjt\\init.txt",
+        "link": {
+            "init": "notepad .\\ex_folder\\reactPjt\\link\\init.txt",
+            "module2": "notepad .\\ex_folder\\reactPjt\\link\\module2.txt"
+        },
+        "__init": "cd gwStart_module_folder && npm run start",
+        "__link": {
+            "init": "cd gwStart_module_folder && npm link module1",
+            "module2": "cd gwStart_module_folder && npm link module2"
+        }
+    },
+    "tf": {
+        "init": "code .\\ex_folder\\test_file\\.",
+        "open": "start .\\ex_folder\\test_file\\.",
+        "py": "python .\\ex_folder\\test_file\\python.py",
+        "js": "node .\\ex_folder\\test_file\\javascript.js"
+    }
+}
