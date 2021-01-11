@@ -11,21 +11,39 @@ SET CURINDEX=1
 
 ECHO !PARAM1! / !PARAM2! / !PARAM3! / !PARAMLEN!
 
+:ballboy
+
 FOR /F "TOKENS=1,2 DELIMS=:" %%A IN (command.json) DO (
+    
     SET CMD=%%A
     SET CMD=!CMD: =!
 
     IF "!CURPARAM!"==!CMD! (
-        ECHO "!CURPARAM!" / !CMD!
         FOR /L %%P IN (1, 1, !PARAMLEN!) DO (
-            IF !CURINDEX!==%%P (
-                ECHO !CURINDEX! / %%P
+            IF !CURINDEX! lss %%P (
+
+                ECHO 1. !CURINDEX! / !CURPARAM! / %%B
+
                 SET TEMPINDEX=!CURINDEX!+1
-                SET CURPARAM=
+                SET CURPARAM=!PARAM%%P!
+                SET CURINDEX=%%P
+                
+                ECHO 2. !CURINDEX! / !CURPARAM! / %%B
+
+                goto :ballboy
+            )
+
+            IF !CURINDEX!==!PARAMLEN! (
+                ECHO %%B
+                GOTO :END
             )
         )
+        
+        
     )
-
 )
+
+:END
+ECHO END
 
 ENDLOCAL
