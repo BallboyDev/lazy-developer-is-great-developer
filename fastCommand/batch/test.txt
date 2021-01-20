@@ -1,3 +1,0 @@
-"TEST1" : "PARAM1"
-        "TEST2" : "PARAM2"
-    "TEST3" : "PARAM3"

@@ -1,49 +1,30 @@
 @ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION
+echo %*
 
-SET PARAMLEN=0
-FOR %%A IN (%*) DO (
-    SET /A PARAMLEN+=1
-    SET PARAM!PARAMLEN!=%%A
-)
-SET CURPARAM=!PARAM1!
-SET CURINDEX=1
-
-ECHO !PARAM1! / !PARAM2! / !PARAM3! / !PARAMLEN!
-
-:ballboy
-
-FOR /F "TOKENS=1,2 DELIMS=:" %%A IN (command.json) DO (
-    
-    SET CMD=%%A
-    SET CMD=!CMD: =!
-
-    IF "!CURPARAM!"==!CMD! (
-        FOR /L %%P IN (1, 1, !PARAMLEN!) DO (
-            IF !CURINDEX! lss %%P (
-
-                ECHO 1. !CURINDEX! / !CURPARAM! / %%B
-
-                SET TEMPINDEX=!CURINDEX!+1
-                SET CURPARAM=!PARAM%%P!
-                SET CURINDEX=%%P
-                
-                ECHO 2. !CURINDEX! / !CURPARAM! / %%B
-
-                goto :ballboy
-            )
-
-            IF !CURINDEX!==!PARAMLEN! (
-                ECHO %%B
-                GOTO :END
-            )
-        )
-        
-        
-    )
+for %%x in (%*) do (
+	set /a "i+=1"
+	call set path!i!=%%~!i!
 )
 
-:END
-ECHO END
+set index=1
+
+for /f "tokens=1,2 delims=:" %%a in (test.json) do (
+	call set param=%%path!index!%%
+	set cmd=%%a
+	REM 한칸 띄어쓰기 제거
+	set cmd=!cmd: =!
+	REM Tab 공백 제거
+	set cmd=!cmd:	=!
+	rem 쌍따옴표 제거
+	set cmd=!cmd:"=!
+	
+	if !cmd!==!param! (
+		echo !cmd! / !param!
+		set /a "index+=1"
+		call set param=%%path!index!%%
+		echo %%b
+	)
+)
 
 ENDLOCAL
