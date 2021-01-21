@@ -1,4 +1,5 @@
 {
+    "init": "echo The asdf program is a program that executes set commands very fast. && goto init",
     "pjt": {
         "init": "start ./ex_folder/bc/main",
         "module1": "code ./ex_folder/bc/main/module1",

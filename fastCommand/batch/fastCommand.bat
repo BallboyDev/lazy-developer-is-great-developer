@@ -9,7 +9,12 @@ for %%x in (%*) do (
 set index=1
 call set param=%%path!index!%%
 
-for /f "tokens=1,2 delims=:" %%a in (command.json) do (
+if "%1"=="" (
+	set paramLen=1
+	call set param=init
+)
+
+for /f "tokens=1,* delims=:" %%a in (command.json) do (
 	
 	set json=%%a
 	REM 한칸 띄어쓰기 제거
@@ -19,6 +24,7 @@ for /f "tokens=1,2 delims=:" %%a in (command.json) do (
 	rem 쌍따옴표 제거
 	set json=!json:"=!
 	
+	echo [!json!] / [!param!] / [!paramLen!]
 	if !json!==!param! (
 
 
@@ -37,8 +43,6 @@ for /f "tokens=1,2 delims=:" %%a in (command.json) do (
 				set exe=%%b
 				set exe=!exe:"=!
 				set exe=!exe:,=!
-
-				echo !exe!
 				goto execute
 			)
 		)
@@ -54,12 +58,18 @@ for /f "tokens=1,2 delims=:" %%a in (command.json) do (
 goto error
 
 :execute
-start !exe!
+echo !exe!
+pause
+%exe%
 goto finish
 
 :error
 echo not found cmd
+goto finish
+
+:init
+notepad "./command.json"
 
 :finish
-exit
+@REM exit
 ENDLOCAL
