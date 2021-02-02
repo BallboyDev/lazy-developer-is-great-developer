@@ -1,75 +1,75 @@
-@ECHO OFF
-SETLOCAL ENABLEDELAYEDEXPANSION
+@REM @ECHO OFF
+@REM SETLOCAL ENABLEDELAYEDEXPANSION
 
-for %%x in (%*) do (
-	set /a "paramLen+=1"
-	call set path!paramLen!=%%~!paramLen!
-)
+@REM for %%x in (%*) do (
+@REM 	set /a "paramLen+=1"
+@REM 	call set path!paramLen!=%%~!paramLen!
+@REM )
 
-set index=1
-call set param=%%path!index!%%
+@REM set index=1
+@REM call set param=%%path!index!%%
 
-if "%1"=="" (
-	set paramLen=1
-	call set param=init
-)
+@REM if "%1"=="" (
+@REM 	set paramLen=1
+@REM 	call set param=init
+@REM )
 
-for /f "tokens=1,* delims=:" %%a in (command.json) do (
+@REM for /f "tokens=1,* delims=:" %%a in (command.json) do (
 	
-	set json=%%a
-	REM 한칸 띄어쓰기 제거
-	set json=!json: =!
-	REM Tab 공백 제거
-	set json=!json:	=!
-	rem 쌍따옴표 제거
-	set json=!json:"=!
+@REM 	set json=%%a
+@REM 	REM 한칸 띄어쓰기 제거
+@REM 	set json=!json: =!
+@REM 	REM Tab 공백 제거
+@REM 	set json=!json:	=!
+@REM 	rem 쌍따옴표 제거
+@REM 	set json=!json:"=!
 	
-	echo [!json!] / [!param!] / [!paramLen!]
-	if !json!==!param! (
+@REM 	echo [!json!] / [!param!] / [!paramLen!]
+@REM 	if !json!==!param! (
 
 
-		if !paramLen!==!index! (
-			set cmd=%%b
-			set cmd=!cmd: =!
-			set cmd=!cmd:	=!
-			@REM set cmd=!cmd:{=!
+@REM 		if !paramLen!==!index! (
+@REM 			set cmd=%%b
+@REM 			set cmd=!cmd: =!
+@REM 			set cmd=!cmd:	=!
+@REM 			@REM set cmd=!cmd:{=!
 
-			if !cmd!=={ (
+@REM 			if !cmd!=={ (
 
-				call set param=init
-			)
+@REM 				call set param=init
+@REM 			)
 
-			if not !cmd!=={ (
-				set exe=%%b
-				set exe=!exe:"=!
-				set exe=!exe:,=!
-				goto execute
-			)
-		)
+@REM 			if not !cmd!=={ (
+@REM 				set exe=%%b
+@REM 				set exe=!exe:"=!
+@REM 				set exe=!exe:,=!
+@REM 				goto execute
+@REM 			)
+@REM 		)
 
-		if not !paramLen!==!index! (
+@REM 		if not !paramLen!==!index! (
 
-			set /a "index+=1"
-			call set param=%%path!index!%%
-		)
+@REM 			set /a "index+=1"
+@REM 			call set param=%%path!index!%%
+@REM 		)
 		
-	)
-)
-goto error
+@REM 	)
+@REM )
+@REM goto error
 
-:execute
-echo !exe!
-pause
-%exe%
-goto finish
+@REM :execute
+@REM echo !exe!
+@REM pause
+@REM %exe%
+@REM goto finish
 
-:error
-echo not found cmd
-goto finish
+@REM :error
+@REM echo not found cmd
+@REM goto finish
 
-:init
-notepad "./command.json"
+@REM :init
+@REM notepad "./command.json"
 
-:finish
-@REM exit
-ENDLOCAL
+@REM :finish
+@REM @REM exit
+@REM ENDLOCAL
