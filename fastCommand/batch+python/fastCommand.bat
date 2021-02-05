@@ -1,1 +1,0 @@
-python ./fastCommand.py
