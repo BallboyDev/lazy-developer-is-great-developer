@@ -1,5 +1,5 @@
-// let data = { LANGKIND: '', CO_CD: '', DIV_CD: '', TR_CD: '', INDEX: '' }
-let data = { langkind: '', coCd: '', divCd: '', trCd: '', index: '' }
+let data = { LANGKIND: '', CO_CD: '', DIV_CD: '', TR_CD: '', INDEX: '' }
+// let data = { langkind: '', coCd: '', divCd: '', trCd: '', index: '' }
 
 let snakeToCamel = (before) => {
     let size = before.length;
