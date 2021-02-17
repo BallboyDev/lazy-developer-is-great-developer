@@ -28,14 +28,21 @@ import klago.util.module.annotation.KlagoController;
  */
 @Controller
 @KlagoController
-@RequestMapping(value="/'''+fileData['menuCodeL']+'''")
 public class '''+fileData['menuCodeU']+'''Controller{
     
     @Autowired
     I'''+fileData['menuCodeU']+'''Service service;
+
+    /**
+	 * 		value : "모듈약자(3자리, padStart(3, '0') 적용) + 기능(조회 : 00 / 생성 : 01 / 수정 : 02 / 삭제 : 03) + 순번(3자리)"
+	 * 		인  사 : 0hr00001
+	 * 		회  계 : 00a01001, 
+	 *      개인화 : 0ap99001, 0hp01001
+	 * 		예  제 : 0ex00001, 0ex01001, 0ex02001, 0ex99001
+	 */
     
     /*
-    @RequestMapping(value="/getData", method= {RequestMethod.POST})
+    @RequestMapping(value="/''' + fileData['menuCodeU'] + '''/00a00001", method= {RequestMethod.POST})
 	@ResponseBody
 	public Object getData(HttpServletRequest servletRequest, HttpServletResponse servletResponse,
 			@RequestBody P_''' + fileData['menuCodeU'] + '''GetData param) throws Exception {

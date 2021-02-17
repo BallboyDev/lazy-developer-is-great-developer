@@ -17,7 +17,7 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
  * @date : 
  * @return
  */
-@Mapper("'''+fileData['path']+'''maper.I'''+fileData['menuCodeU']+'''Mapper")
+@Mapper("'''+fileData['path']+'''mapper.I'''+fileData['menuCodeU']+'''Mapper")
 public interface I'''+fileData['menuCodeU']+'''Mapper {
 	
     /* App Builder Continue */
