@@ -24,13 +24,13 @@
     height: 100%;
 }
 
-.dataBox {
+.formBox {
     position: absolute;
     height: 50%;
     width:100%;
 }
 
-.formBox {
+.dataBox {
     position: absolute;
     top: 50%;
     height: 50%;
@@ -59,6 +59,7 @@
     position: relative;
     height: 30px;
     width: 100%;
+    /* line-height: 30px; */
 }
 
 .button {
@@ -71,6 +72,13 @@
     height: 30px;
     width: 90px;
     background-color: skyblue;
+}
+
+.radio_tag{
+    margin-left: 0.5rem;
+    float: left;
+    line-height:30px;
+    height:30px;
 }
 
 .button:active {
