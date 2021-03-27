@@ -3,6 +3,7 @@ def service(fileData):
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -24,7 +25,7 @@ import '''+fileData['path']+'''service.I'''+fileData['menuCodeU']+'''Service;
  */
 @Service
 public class '''+fileData['menuCodeU']+'''Service extends EgovAbstractServiceImpl implements I'''+fileData['menuCodeU']+'''Service{
-	
+    @Autowired
 	private I'''+fileData['menuCodeU']+'''Mapper mapper;
 	
 	/* App Builder Continue */

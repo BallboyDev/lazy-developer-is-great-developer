@@ -1,4 +1,5 @@
 import os
+import shutil
 from files.controller import controller
 from files.mapper import imapper
 from files.service.impl import service
@@ -17,6 +18,7 @@ def makeDirtory(fileData):
     os.makedirs('./'+fileData["menuCodeL"]+'/query/common')
     os.makedirs('./'+fileData["menuCodeL"]+'/query/mariadb')
     os.makedirs('./'+fileData["menuCodeL"]+'/query/oracle')
+    os.makedirs('./'+fileData["menuCodeL"]+'/query/mssql')
     os.makedirs('./'+fileData["menuCodeL"]+'/service/impl')
 
 def makeFiles(fileData):
@@ -32,8 +34,14 @@ def makeFiles(fileData):
 
     # query
     common.common(fileData)
-    mariadb.mariadb(fileData)
+    # mariadb.mariadb(fileData)
     # query.oracle(fileData)
 
     # junit Test
     junit.junit(fileData)
+
+def folderMove(fileData):
+    # print(f'{os.path.expanduser("~")}\\desktop\\{fileData["menuCodeL"]}')
+    shutil.move(fileData['menuCodeL'], f'{os.path.expanduser("~")}\\desktop\\{fileData["menuCodeL"]}')
+    return f'{os.path.expanduser("~")}\\desktop\\{fileData["menuCodeL"]}'
+    # shutil.move(fileData['menuCodeL'], '..\\' + fileData['menuCodeL'])

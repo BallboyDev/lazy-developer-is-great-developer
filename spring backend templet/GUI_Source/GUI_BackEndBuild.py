@@ -39,8 +39,6 @@ class MakeFrame(tk.Frame):
 
         self.stateLb = ttk.Label(border=2, relief="ridge", wraplength=330)
 
-        # testBtn = ttk.Button(text="test", command=self.testClick)
-
         # set widget position
         moduleLb.place(x=20, y=20, width=70, height=25)
         self.moduleTxt.place(x=100, y=20, width=120, height=25)
@@ -55,6 +53,9 @@ class MakeFrame(tk.Frame):
         self.stateLb.place(x=20, y=140, width=330, height=100)
 
     def confirmClick(self):
+        if(tk.Entry.get(self.pathTxt)[-1] != '.'):
+            self.pathTxt.insert(len(tk.Entry.get(self.pathTxt)), '.')
+
         fileData = {
             "moduleName": tk.Entry.get(self.moduleTxt),
             "menuCodeU": tk.Entry.get(self.menuTxt).upper(),
@@ -63,14 +64,20 @@ class MakeFrame(tk.Frame):
         }
 
         try:
+            # print(fileData)
             util.makeDirtory(fileData)
             util.makeFiles(fileData)
+            madePath = util.folderMove(fileData)
             
-            self.stateLb["text"] = "SUCCESS"
+            self.stateLb["text"] = f"""
+SUCCESS
+생성 경로 => {madePath}
+"""
         except Exception as e:
-            self.stateLb["text"] = e
-
-        
+            self.stateLb["text"] = f"""
+FAILURE
+error => {e}
+"""
 
     def cancelClick(self):
         sys.exit()
@@ -80,20 +87,24 @@ class MakeFrame(tk.Frame):
         self.moduleTxt.insert(0, self.moduleList[self.moduleDropBox.get()])
         self.menuTxt.delete(0, "end")
         self.pathTxt.delete(0, "end")
+        self.stateLb["text"] = ""
         
     def moduleTxtHandler(self, event):
         self.moduleDropBox.set("직접입력")
         self.menuTxt.delete(0, "end")
         self.pathTxt.delete(0, "end")
+        self.stateLb["text"] = ""
         if(len(tk.Entry.get(self.moduleTxt)) > 0 and len(tk.Entry.get(self.menuTxt)) > 0):
             self.setPathTxt()
 
     def menuTxtHandler(self, event):
         self.pathTxt.delete(0, "end")
+        self.stateLb["text"] = ""
         if(len(tk.Entry.get(self.moduleTxt)) > 0 and len(tk.Entry.get(self.menuTxt)) > 0):
             self.setPathTxt()
 
     def setPathTxt(self):
+        self.stateLb["text"] = ""
         self.pathTxt.delete(0, "end")
         self.pathTxt.insert(0, util.makePath(tk.Entry.get(self.moduleTxt), tk.Entry.get(self.menuTxt)))
 
