@@ -56,9 +56,7 @@ window.onload = () => {
                     return {
                         index: i1,
                         values: v1.split(/ |\t/gi).filter((v) => { return v !== '' }).map((v2, i2) => {
-                            return {
-                                [`value${i2}`]: v2
-                            }
+                            return { [`value${i2}`]: v2 }
                         })
                     }
                 })
@@ -96,7 +94,7 @@ window.onload = () => {
             case 'repeat':
                 this.document.getElementById('data').value = '1-1\t1-2\t1-3\t1-4\n2-1\t2-2\t2-3\t2-4\n3-1 3-2 3-3 3-4\n4-1 4-2 4-3 4-4\n5-1 5-2 5-3 5-4\n6-1 6-2 6-3 6-4';
                 this.document.getElementById('form').value = '-- #{i} 번째 반복 -- \nline1 = #{0}\nline2 = #{1}\nline3 = #{2}\nline4 = #{0}';
-                this.document.getElementById('result').value = '데이터 입력칸(좌상단)에 순차적으로 입력될 데이터를 한 줄 단위로 입력한다.\nex) a\n    b\n    c\n    d\n    e\n\n반복 형식 입력칸(좌하단)에 반복될 형식을 입력한다.\nex)\n입력문자 : <#0>\n\n데이터화 형식이 입력이 되었으면 change 버튼을 클릭한다.\nresult)\n입력문자 : a\n입력문자 : b\n입력문자 : c\n입력문자 : d\n입력문자 : e\n\n결과창에 나타난 데이터를 확인한다.';
+                this.document.getElementById('result').value = '데이터 입력칸(좌상단)에 순차적으로 입력될 데이터를 한 줄 단위로 입력한다.\nex) a\n    b\n    c\n    d\n    e\n\n반복 형식 입력칸(좌하단)에 반복될 형식을 입력한다.\nex)\n입력문자 : #{0}\n\n데이터화 형식이 입력이 되었으면 change 버튼을 클릭한다.\nresult)\n입력문자 : a\n입력문자 : b\n입력문자 : c\n입력문자 : d\n입력문자 : e\n\n결과창에 나타난 데이터를 확인한다.';
                 break;
         }
 
