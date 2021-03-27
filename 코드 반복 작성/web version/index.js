@@ -94,7 +94,7 @@ window.onload = () => {
             case 'repeat':
                 this.document.getElementById('data').value = '1-1\t1-2\t1-3\t1-4\n2-1\t2-2\t2-3\t2-4\n3-1 3-2 3-3 3-4\n4-1 4-2 4-3 4-4\n5-1 5-2 5-3 5-4\n6-1 6-2 6-3 6-4';
                 this.document.getElementById('form').value = '-- #{i} 번째 반복 -- \nline1 = #{0}\nline2 = #{1}\nline3 = #{2}\nline4 = #{0}';
-                this.document.getElementById('result').value = '데이터 입력칸(좌상단)에 순차적으로 입력될 데이터를 한 줄 단위로 입력한다.\nex) a\n    b\n    c\n    d\n    e\n\n반복 형식 입력칸(좌하단)에 반복될 형식을 입력한다.\nex)\n입력문자 : #{0}\n\n데이터화 형식이 입력이 되었으면 change 버튼을 클릭한다.\nresult)\n입력문자 : a\n입력문자 : b\n입력문자 : c\n입력문자 : d\n입력문자 : e\n\n결과창에 나타난 데이터를 확인한다.';
+                this.document.getElementById('result').value = '< 코드 반복 작성 사용법 >\n1. form 입력칸(좌삳단)에 반복 작성될 코드의 form을 입력한다.\n2. data 입력칸(좌하단)에 반복할 횟수만큼의 row에 데이터 입력한다.\n3. change 버튼을 누른다.\n\nform칸에 작성된 코드에서 반복때마다 다른 값이 들어가야 되는 코드는 #{x}로 작성한다.\n코드가 작성되며 #{x}는 data칸에 작성된 데이터를 기반으로 자동으로 치환되어\nresult 칸에 출력된다.\n#{i}는 반복되는 인덱스를 출력한다.\n\n----------예시---------- \n--- form칸\n반복될 코드 #{i} : #{0} / #{1}\n\n--- data칸\na1 b6\na2 b7\na3 b8\na4 b9\na5 b0\n\n--- 결과값\n반복될 코드 0 : a1 / b6\n반복될 코드 1 : a2 / b7\n반복될 코드 2 : a3 / b8\n반복될 코드 3 : a4 / b9\n반복될 코드 4 : a5 / b0'
                 break;
         }
 
