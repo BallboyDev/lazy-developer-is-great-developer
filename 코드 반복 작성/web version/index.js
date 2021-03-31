@@ -21,34 +21,41 @@ window.onload = () => {
             case 'query':
                 let index = 0
                 form = this.document.getElementById('form').value
-                data = this.document.getElementById('data').value.split('\n').map((v, i) => {
-                    if (v.indexOf('=>') > -1) {
-                        return {
-                            colName: v.split('=>')[0].trim(),
-                            value: v.split('=>')[1].trim()
-                        }
-                    } else if (v.trim().length !== 0) {
-                        return {
-                            colName: `colName${i}`,
-                            value: v.trim()
-                        }
-                    }
-                }).filter((v) => { return (v || '') !== '' })
+                data = this.document.getElementById('data').value.split(',').map((v, i) => {
+                    console.log(v)
 
-                form = form.split('').map((v) => {
-                    if (v === '?') {
-                        return index < data.length ? `#{${data[index++].colName}}` : v
-                    } else {
-                        return v
-                    }
-                }).join('')
+                    if (v.indexOf('(') > -1) {
 
-                data.map((v) => {
-                    let reg1 = new RegExp(`#{(${v.colName})}`, 'gi')
-                    form = form.replace(reg1, `'${v.value}'`)
+                    }
                 })
+                // data = this.document.getElementById('data').value.split('\n').map((v, i) => {
+                //     if (v.indexOf('=>') > -1) {
+                //         return {
+                //             colName: v.split('=>')[0].trim(),
+                //             value: v.split('=>')[1].trim()
+                //         }
+                //     } else if (v.trim().length !== 0) {
+                //         return {
+                //             colName: `colName${i}`,
+                //             value: v.trim()
+                //         }
+                //     }
+                // }).filter((v) => { return (v || '') !== '' })
 
-                this.document.getElementById('result').value = form
+                // form = form.split('').map((v) => {
+                //     if (v === '?') {
+                //         return index < data.length ? `#{${data[index++].colName}}` : v
+                //     } else {
+                //         return v
+                //     }
+                // }).join('')
+
+                // data.map((v) => {
+                //     let reg1 = new RegExp(`#{(${v.colName})}`, 'gi')
+                //     form = form.replace(reg1, `'${v.value}'`)
+                // })
+
+                // this.document.getElementById('result').value = form
                 break;
             case 'repeat':
                 form = this.document.getElementById('form').value;
@@ -88,7 +95,7 @@ window.onload = () => {
         switch (this.radioStatus()) {
             case 'query':
                 this.document.getElementById('form').value = '----------예시1---------- \nSELECT * \n  FROM TEMP_TABLE T \n WHERE CO_CD = ? \n   AND DIV_CD = ? \n   AND EMP_CD = ?\n\n----------예시2---------- \nSELECT * \n  FROM TEMP_TABLE T \n WHERE CO_CD = #{coCd} \n   AND EMP_CD = #{empCd} \n   AND DIV_CD = #{divCd}'
-                this.document.getElementById('data').value = 'coCd => 1000\ndivCd => 2000\nempCd => 3000'
+                this.document.getElementById('data').value = '1000(coCd), 2000(divCd), 3000(empCd)'
                 this.document.getElementById('result').value = '< query 변환 사용법 >\n1. form 입력칸(좌상단)에 쿼리를 입력한다.\n2. data 입력칸(좌하단)에 데이터를 입력한다.\n3. change 버튼을 클릭한다.\n\nform칸에 입력된 쿼리에서 \'?\' 문자는 쿼리 변환시 data칸에 입력된 데이터를 입력 라인 순서대로 변환됩니다.\n\nform칸에 Mybatis와 같이 #{colName} 형식으로 입력시에는 data칸에 입력된 데이터의 colName에 맞춰 변환이 이루어 집니다.\n\n----------예시1---------- \nSELECT * \n  FROM TEMP_TABLE T \n WHERE CO_CD = \'1000\' \n   AND DIV_CD = \'2000\' \n   AND EMP_CD = \'3000\'\n\n----------예시2---------- \nSELECT * \n  FROM TEMP_TABLE T \n WHERE CO_CD = \'1000\' \n   AND DIV_CD = \'2000\' \n   AND EMP_CD = \'3000\''
                 break;
             case 'repeat':
