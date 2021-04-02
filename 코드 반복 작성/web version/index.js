@@ -21,41 +21,36 @@ window.onload = () => {
             case 'query':
                 let index = 0
                 form = this.document.getElementById('form').value
-                data = this.document.getElementById('data').value.split(',').map((v, i) => {
-                    console.log(v)
+                data = this.document.getElementById('data').value.split(',').map((v1, i) => {
 
-                    if (v.indexOf('(') > -1) {
-
+                    //.trim().split(/[(](.*?)[)]/gi)
+                    if (v1.indexOf('(') > -1 && v1.indexOf(')')) {
+                        return {
+                            colName: v1.trim().match(/[(](.*?)[)]/gi)[0].replace(/[(]|[)]/gi, ''),
+                            value: v1.trim().replace(/[(](.*?)[)]/gi, '')
+                        }
+                    } else {
+                        return {
+                            colName: `colName${i}`,
+                            value: v1.trim()
+                        }
                     }
+                }).filter((v) => { return (v || '') !== '' })
+
+                form = form.split('').map((v) => {
+                    if (v === '?') {
+                        return index < data.length ? `#{${data[index++].colName}}` : v
+                    } else {
+                        return v
+                    }
+                }).join('')
+
+                data.map((v) => {
+                    let reg1 = new RegExp(`#{${v.colName}}`, 'gi')
+                    form = form.replace(reg1, `'${v.value}'`)
                 })
-                // data = this.document.getElementById('data').value.split('\n').map((v, i) => {
-                //     if (v.indexOf('=>') > -1) {
-                //         return {
-                //             colName: v.split('=>')[0].trim(),
-                //             value: v.split('=>')[1].trim()
-                //         }
-                //     } else if (v.trim().length !== 0) {
-                //         return {
-                //             colName: `colName${i}`,
-                //             value: v.trim()
-                //         }
-                //     }
-                // }).filter((v) => { return (v || '') !== '' })
 
-                // form = form.split('').map((v) => {
-                //     if (v === '?') {
-                //         return index < data.length ? `#{${data[index++].colName}}` : v
-                //     } else {
-                //         return v
-                //     }
-                // }).join('')
-
-                // data.map((v) => {
-                //     let reg1 = new RegExp(`#{(${v.colName})}`, 'gi')
-                //     form = form.replace(reg1, `'${v.value}'`)
-                // })
-
-                // this.document.getElementById('result').value = form
+                this.document.getElementById('result').value = form
                 break;
             case 'repeat':
                 form = this.document.getElementById('form').value;
