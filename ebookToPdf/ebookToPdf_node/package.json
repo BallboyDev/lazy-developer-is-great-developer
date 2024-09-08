@@ -1,0 +1,18 @@
+{
+  "name": "ebooktopdf_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "npm rebuild --runtime=electron --target=1.1.3 --disturl=https://atom.io/download/atom-shell --abi=48"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^27.0.4",
+    "path": "^0.12.7",
+    "robotjs": "^0.6.0"
+  }
+}

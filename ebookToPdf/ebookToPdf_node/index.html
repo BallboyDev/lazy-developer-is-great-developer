@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <title>Hello from Electron renderer!</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+</head>
+
+<body>
+    <div class="w-100 h-100 position-absolute">
+        <!-- 화면 정보 -->
+        <div class="d-flex justify-content-around">
+            <div id="info"></div>
+            <div class="d-flex">
+                <div>화면 크기 : </div>
+                <div id="screen_size">1000*1000</div>
+            </div>
+            <div class="d-flex">
+                <div>마우스 위치 : </div>
+                <div>1000*1000</div>
+            </div>
+
+        </div>
+
+        <div class="d-flex flex-wrap">
+            <!-- 저장 설정 -->
+            <div class="w-100 d-flex flex-column border mb-1">
+                <div>PDF 저장 위치</div>
+                <div class="d-flex flex-row">
+                    <input type="text" name="" id="">
+                    <input type="button" value="find">
+                </div>
+                <!-- <div >
+                    <div>input</div>
+                </div> -->
+            </div>
+
+            <div class="w-100 d-flex flex-column border mb-1">
+                <div>캡처 영역 설정</div>
+                <div class="d-flex flex-row">
+                    <div class="w-50">
+                        <div>좌상단</div>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="w-50">
+                        <div>우하단</div>
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-50 d-flex flex-column border mb-1">
+                <div>페이지 넘기기</div>
+                <input type="text" name="" id="">
+            </div>
+
+            <div class="w-50 d-flex flex-column border mb-1">
+                <div>캡처 페이지 수</div>
+                <input type="text" name="" id="">
+            </div>
+            <!-- ------------------------ -->
+            <!-- 
+            <div class="long">
+                <div>title</div>
+                <div class="input_area">
+                    <div>input</div>
+                    <div>input</div>
+                </div>
+            </div>
+            <div class="short">
+                <div>title</div>
+                <div>input</div>
+            </div>
+            -->
+        </div>
+
+    </div>
+</body>
+<script src="./renderer.js"></script>
+
+</html>
+
+<!-- 
+- 필요한 기능
+1. 현재 화면 크기 v
+1. 현재 마우스 포인터 위치 v
+1. 캡처 영역 설정 -> 시작 / 끝 위치 v
+1. 다음 페이지 넘기기 설정
+1. 페이지 수 / 캡처 반복
+1. PDF 저장 위치 설정 v
+-->

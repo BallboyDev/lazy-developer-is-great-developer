@@ -17,3 +17,6 @@
 
 ## textToConvert
 - json의 key값을 snake 형식과 camel 형식으로 서로 변환해주는 모듈
+
+## ebookToPdf
+- ebook 또는 웹 페이지를 반복 캡쳐하여 PDF파일로 변환하는 프로그램
