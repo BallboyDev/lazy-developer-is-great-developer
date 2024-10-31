@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #eee;
+            display: flex;
+            font-family: sans-serif;
+        }
+
+        .container {
+            margin: auto;
+            width: 40rem;
+            max-width: 90%;
+            min-height: 20rem;
+
+            padding: 1.25rem;
+            background: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #222;
+        }
+
+        .gb {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        tr {
+            height: 2rem;
+            border-bottom: 1px #bbb solid;
+        }
+
+        .index {
+            width: 8%;
+            text-align: center;
+        }
+
+        .title {
+            width: 50%
+        }
+
+        .writer {
+            width: 18%;
+            text-align: center;
+        }
+
+        .date {
+            width: 16%;
+            text-align: center;
+        }
+
+        .count {
+            width: 8%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login Form</h1>
+
+        <!-- 
+        index, title, writer, count, attach, date, read
+        -->
+
+        <table class="gb">
+            <thead>
+                <tr>
+                    <th class="index"></th>
+                    <th class="title">제목</th>
+                    <th class="writer">작성자</th>
+                    <th class="date">작성일</th>
+                    <th class="count">조회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="index">3</td>
+                    <td class="title">세번째 게시글 입니다.</td>
+                    <td class="writer">SWYANG</td>
+                    <td class="date">2024.12.31</td>
+                    <td class="count">99</td>
+                </tr>
+                <tr>
+                    <td class="index">2</td>
+                    <td class="title">두번째 GuestBook</td>
+                    <td class="writer">Franciscus</td>
+                    <td class="date">2024.03.29</td>
+                    <td class="count">13</td>
+                </tr>
+                <tr>
+                    <td class="index">1</td>
+                    <td class="title">첫번째 방명록</td>
+                    <td class="writer">Ballboy</td>
+                    <td class="date">2024.01.01</td>
+                    <td class="count">11</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

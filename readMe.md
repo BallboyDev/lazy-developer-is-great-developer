@@ -23,3 +23,6 @@
 
 ## KoreanClokc
 - 시간을 한글로 표시해주는 시계
+
+## guestbook-template
+- frontend 프레임워크나 라이브러리를 학습할때 사용하기 위한 베이스 템플릿 코드
