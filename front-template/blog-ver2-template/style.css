@@ -1,0 +1,81 @@
+/***** set color *****/
+:root {
+    --nav-back: #020409;
+
+    --nav-color: #c5c5c5;
+}
+
+/***** css style *****/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ballboy {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+}
+
+/***** navigator *****/
+
+.ballboy-nav {
+    width: 18rem;
+    height: 100%;
+    border-right: 1px solid grey !important;
+
+    background-color: var(--nav-back);
+}
+
+.ballboy-nav>* {
+    border-bottom: 1px solid grey !important;
+    color: var(--nav-color);
+}
+
+.ballboy-nav>.search {
+    width: 100%;
+    height: 3rem;
+
+    padding: 0.5rem 1rem;
+
+    border-width: 0;
+
+    background-color: var(--nav-back);
+    color: var(--nav-color);
+}
+
+.ballboy-nav>.home {
+    width: 100%;
+    height: 3rem;
+
+    padding: 0.5rem 1rem;
+
+    line-height: 2rem;
+}
+
+.ballboy-nav>.posts {
+    padding: 0.5rem 0;
+}
+
+.ballboy-nav>.posts>.post {
+    height: 2rem;
+    padding: 0.5rem 1rem;
+
+    cursor: pointer;
+}
+
+.ballboy-nav>.posts>.post:hover {
+    color: skyblue;
+}
+
+/***** main page *****/
+
+.ballboy-main {
+    width: calc(100% - 18rem);
+    height: 100%;
+    background-color: #0e1116;
+}
