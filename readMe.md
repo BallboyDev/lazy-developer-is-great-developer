@@ -21,7 +21,7 @@
 ## ebookToPdf
 - ebook 또는 웹 페이지를 반복 캡쳐하여 PDF파일로 변환하는 프로그램
 
-## KoreanClokc
+## KoreanClock
 - 시간을 한글로 표시해주는 시계
 
 ## guestbook-template
