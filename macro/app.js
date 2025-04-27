@@ -1,8 +1,12 @@
 const robot = require('robotjs')
 
-robot.setMouseDelay(500)
+robot.setMouseDelay(100)
 
-for (let i = 0; i < 100; i++) {
+const count = process?.argv[2] || 5
+
+console.log("count >>", count)
+
+for (let i = 0; i < count; i++) {
     console.log('click', i)
     robot.mouseClick()
 }
