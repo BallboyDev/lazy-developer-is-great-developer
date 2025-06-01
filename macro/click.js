@@ -1,6 +1,6 @@
 const robot = require('robotjs')
 
-robot.setMouseDelay(100)
+robot.setMouseDelay(200)
 
 const count = process?.argv[2] || 5
 
