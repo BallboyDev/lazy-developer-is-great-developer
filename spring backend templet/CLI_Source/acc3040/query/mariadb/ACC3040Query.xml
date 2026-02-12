@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="klago.financial.acc.acc3000.acc3040.mapper.IACC3040Mapper">
+	<select id="getData"
+		parameterType=""
+		resultType=""
+		lang="withoutConversion">
+	</select>
+</mapper>
